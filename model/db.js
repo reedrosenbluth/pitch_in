@@ -15,4 +15,15 @@ var songSchema = new Schema({
 mongoose.model('Song', songSchema);
 // mongoose.model('Playlist', playlistSchema);
 
-mongoose.connect('mongodb://localhost/pitch_in');
+var uristring = 
+    process.env.MONGOLAB_URI || 
+    process.env.MONGOHQ_URL || 
+    'mongodb://localhost/pitch_in';
+
+mongoose.connect(uristring, function (err, res) {
+    if (err) { 
+        console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    } else {
+        console.log ('Succeeded connected to: ' + uristring);
+    }
+});
