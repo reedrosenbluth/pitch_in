@@ -11,4 +11,8 @@
     "less-middleware": "*",
     "mongoose": "*"
   }
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  }
 }
