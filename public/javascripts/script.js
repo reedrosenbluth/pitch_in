@@ -13,6 +13,8 @@ $(function() {
     });
 
     function playSong(track_url) {
+        $('.song').removeClass('playing');
+        $song.addClass('playing');
         var base_url = getBaseUrl(track_url);
         if (base_url  === 'soundcloud.com') {
             playSoundCloud(track_url);
@@ -46,7 +48,7 @@ $(function() {
             var iframeElement = document.querySelector('iframe');
             var widget = SC.Widget(iframeElement);
             widget.bind(SC.Widget.Events.FINISH, function() {
-                nextSong = $song.parent().parent().next().find('.song');
+                nextSong = $song.next();
                 $song = nextSong;
                 nextUrl = nextSong.attr('href');
                 playSong(nextUrl);
@@ -67,7 +69,7 @@ $(function() {
 
     function onPlayerStateChange(event) {        
         if(event.data === 0) {            
-            nextSong = $song.parent().parent().next().find('.song');
+            nextSong = $song.next();
             $song = nextSong;
             nextUrl = nextSong.attr('href');
             playSong(nextUrl);

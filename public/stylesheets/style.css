@@ -9,9 +9,19 @@ a {
 .table {
   width: 600px;
 }
+.song {
+  cursor: hand;
+  cursor: pointer;
+}
+.song:hover {
+  background-color: #eaeaea;
+}
+.playing {
+  background-color: #eaeaea;
+}
 #track {
   position: fixed;
-  bottom: 0;
+  bottom: -5px;
   right: 0;
   width: 600px;
 }
