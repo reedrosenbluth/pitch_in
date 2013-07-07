@@ -9,7 +9,7 @@ block content
         input.input-medium(type="text", name="url", placeholder="url")
         button.btn(type="submit") Submit
     br
-    table.table
+    table.table.table-condensed
         thead
             tr
                 th
@@ -18,7 +18,7 @@ block content
                     p Song Name
                 th
                     p Artist
-                th
+                th(style="float:right")
                     p Delete
         tbody
             each song, i in songs
@@ -30,6 +30,6 @@ block content
                     td
                         p #{song.artist}
                     td
-                        a.delete(href="/destroy/#{song._id}") X
+                        a.btn.btn-danger.btn-mini.delete(href="/destroy/#{song._id}") <i class="icon-remove"></i>
     br
     #track
