@@ -13,8 +13,8 @@ $(function() {
     });
 
     function playSong(track_url) {
-        $('.song').removeClass('playing');
-        $song.addClass('playing');
+        $('.song').removeClass('success');
+        $song.addClass('success');
         var base_url = getBaseUrl(track_url);
         if (base_url  === 'soundcloud.com') {
             playSoundCloud(track_url);
