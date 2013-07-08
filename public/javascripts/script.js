@@ -6,7 +6,7 @@ $(function() {
     $song = $('.song').first();
 
     $('.song').on('click', function(e) {
-        e.preventDefault();
+        //e.preventDefault();
         $song = $(this);
         var track_url = $song.attr('href');
         playSong(track_url);
