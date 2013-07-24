@@ -1,8 +1,7 @@
 extends layout
 
 block content
-    h1= title
-    hr
+    h2= title
     form.form-inline(action="/create", method="post", accept-charset="utf-8")
         input.input-medium(type="text", name="name", placeholder="new playlist")
         button.btn(type="submit") Submit

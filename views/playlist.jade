@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1= title
-    hr
+    br
     form.form-inline(action="/add", method="post", accept-charset="utf-8")
         input.input-medium(type="text", name="title", placeholder="title")
         input.input-medium(type="text", name="artist", placeholder="artist")
