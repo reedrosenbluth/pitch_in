@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    h1= title
+    hr
+    form.form-inline(action="/add", method="post", accept-charset="utf-8")
+        input.input-medium(type="text", name="title", placeholder="title")
+        input.input-medium(type="text", name="artist", placeholder="artist")
+        input.input-medium(type="text", name="url", placeholder="url")
+        input(type="hidden", name="id", value="#{id}")
+        button.btn(type="submit") Submit
+    br
+    table.table.table-condensed
+        thead
+            tr
+                th
+                    p #
+                th
+                    p Song Name
+                th
+                    p Artist
+                th(style="float:right")
+                    p Delete
+        tbody
+            each song, i in songs
+                tr.song(href=song.url)
+                    td
+                        p #{i + 1}
+                    td
+                        p #{song.title}
+                    td
+                        p #{song.artist}
+                    td
+                        a.delete(href="/destroy/#{song._id}") <i class="icon-remove"></i>
+    #track
+        //-button.btn.btn-small.toggle Player
+        #player

@@ -3,16 +3,33 @@ $(function() {
         client_id: '4e02febf3f486eb62dcc6adaf3934343'
     });	
 
-    $song = $('.song').first();
+    var $song = $('.song').first();
+    var hidden = false;
 
     $('.song').on('click', function(e) {
-        //e.preventDefault();
         $song = $(this);
         var track_url = $song.attr('href');
         playSong(track_url);
     });
 
+    $('.toggle').hide();
+
+    $('.toggle').on('click', function() {
+        if (!hidden) {
+            $('#player').animate({
+                'margin-left':'+=' + 600
+            }, 200);
+            hidden = true;
+        } else {
+            $('#player').animate({
+                'margin-left':'-=' + 600
+            }, 200);
+            hidden = false;
+        }
+    });
+
     function playSong(track_url) {
+        $('.toggle').show();
         $('.song').removeClass('success');
         $song.addClass('success');
         var base_url = getBaseUrl(track_url);
@@ -25,12 +42,10 @@ $(function() {
             if(ampersandPosition != -1) {
                 video_id = video_id.substring(0, ampersandPosition);
             }
-            //var iFrame = '<iframe id="ytplayer" type="text/html" width="600" height="360" src="https://www.youtube.com/embed/' + video_id + '?autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen>';
-            //$('#track').html(iFrame);
-            $('#track').html('');
-            $('#track').append('<div id="player"></div>');
+            $('#player').html('');
+            $('#player').append('<div id="yt"></div>');
             var player;
-            player = new YT.Player('player', {
+            player = new YT.Player('yt', {
                 height: '390',
                 width: '600',
                 videoId: video_id,
@@ -44,7 +59,7 @@ $(function() {
 
     function playSoundCloud(url) {
         SC.oEmbed(url, { auto_play: true }, function(oEmbed) {
-            $('#track').html(oEmbed.html);
+            $('#player').html(oEmbed.html);
             var iframeElement = document.querySelector('iframe');
             var widget = SC.Widget(iframeElement);
             widget.bind(SC.Widget.Events.FINISH, function() {

@@ -5,6 +5,8 @@
 
 var express = require('express')
   , db = require('./model/db')
+  , passport = require('passport')
+  , TwitterStrategy = require('passport-twitter').Strategy
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
@@ -31,9 +33,12 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/playlist/:id', routes.playlist);
+app.get('/login', routes.login);
 app.get('/users', user.list);
 app.get('/destroy/:id', routes.destroy);
-app.post('/create', routes.create );
+app.post('/add', routes.add);
+app.post('/create', routes.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

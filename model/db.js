@@ -4,16 +4,24 @@ var mongoose = require('mongoose')
 var songSchema = new Schema({
     title: String,
     artist: String,
-    url: String
+    url: String,
+    playlistId: String
 });
 
-// var playlistSchema = new Schema({
-//     name: String,
-//     songs: [Schema.Types.ObjectId]
-// });
+ var playlistSchema = new Schema({
+     name: String
+ });
+
+var userSchema = new Schema({
+    firstname: String,
+    lastname: String,
+    email: String,
+    accounts: []
+});
 
 mongoose.model('Song', songSchema);
-// mongoose.model('Playlist', playlistSchema);
+mongoose.model('User', userSchema);
+mongoose.model('Playlist', playlistSchema);
 
 var uristring = 
     process.env.MONGOLAB_URI || 

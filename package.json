@@ -9,7 +9,9 @@
     "express": "3.3.1",
     "jade": "*",
     "less-middleware": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "passport": "*",
+    "passport-twitter": "*"
   },
   "engines": {
     "node": "0.10.x",
