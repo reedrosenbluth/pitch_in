@@ -1,6 +1,9 @@
 body {
   padding: 30px 50px 30px 50px;
 }
+#logo {
+  display: inline-block;
+}
 #logo h2 {
   display: inline-block;
   padding: 10px 18px 10px 18px;
