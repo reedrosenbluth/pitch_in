@@ -1,12 +1,14 @@
 extends layout
 
 block content
-    h2= title
-    form.form-inline(action="/create", method="post", accept-charset="utf-8")
-        input.input-medium(type="text", name="name", placeholder="new playlist")
-        button.btn(type="submit") Submit
+    .row
+        .col-lg-2
+            h2= title
+        .col-lg-10.add-new-playlist
+            form.form-inline(action="/create", method="post", accept-charset="utf-8")
+                input.new-playlist.form-control(type="text", name="name", placeholder="new playlist")
+                button.btn(type="submit") Submit
     br
-    ul
+    .list-group
         each list in playlists
-            li
-                a(href='/playlist/' + list.id) #{list.name}
+            a.list-group-item(href='/playlist/' + list.id) #{list.name}

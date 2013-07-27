@@ -4,9 +4,9 @@ block content
     h1= title
     br
     form.form-inline(action="/add", method="post", accept-charset="utf-8")
-        input.input-medium(type="text", name="title", placeholder="title")
-        input.input-medium(type="text", name="artist", placeholder="artist")
-        input.input-medium(type="text", name="url", placeholder="url")
+        input.form-control.input-medium(type="text", name="title", placeholder="title")
+        input.form-control.input-medium(type="text", name="artist", placeholder="artist")
+        input.form-control.input-medium(type="text", name="url", placeholder="url")
         input(type="hidden", name="id", value="#{id}")
         button.btn(type="submit") Submit
     br

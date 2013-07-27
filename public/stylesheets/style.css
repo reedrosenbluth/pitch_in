@@ -1,4 +1,12 @@
 body {
+  /*padding: 30px 50px 30px 50px;*/
+
+}
+#header {
+  padding: 30px 50px 20px 50px;
+  background-color: #EBEBEB;
+}
+#content {
   padding: 30px 50px 30px 50px;
 }
 #logo {
@@ -10,6 +18,21 @@ body {
   color: white;
   background: black;
   border-radius: 3px;
+}
+.account {
+  display: block;
+  float: right;
+  margin: 36px 0 0 0;
+}
+.add-new-playlist {
+  margin-top: 20px;
+  margin-left: -60px;
+}
+form .new-playlist {
+  width: 300px;
+}
+form .input-medium {
+  width: 154px;
 }
 a {
   color: #00B7FF;

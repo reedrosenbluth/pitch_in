@@ -11,7 +11,8 @@ exports.index = function(req, res) {
     Playlist.find(function(err, playlists, count) {
         res.render('index', {
             title: 'Playlists',
-            playlists: playlists
+            playlists: playlists,
+            user: req.user
         });
     });
 };
@@ -23,13 +24,15 @@ exports.playlist = function(req, res){
                 res.render('playlist', {
                     id: playlist.id,
                     title: playlist.name,
-                    songs: songs
+                    songs: songs,
+                    user: req.user
                 });
             } else {
                 res.render('playlist', {
                     id: playlist.id,
                     title: playlist.name,
-                    songs: ''
+                    songs: '',
+                    user: req.user
                 });
             }
         });

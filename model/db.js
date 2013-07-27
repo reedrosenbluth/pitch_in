@@ -9,18 +9,11 @@ var songSchema = new Schema({
 });
 
  var playlistSchema = new Schema({
-     name: String
+     name: String,
+     users: [String]
  });
 
-var userSchema = new Schema({
-    firstname: String,
-    lastname: String,
-    email: String,
-    accounts: []
-});
-
 mongoose.model('Song', songSchema);
-mongoose.model('User', userSchema);
 mongoose.model('Playlist', playlistSchema);
 
 var uristring = 

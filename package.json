@@ -11,7 +11,8 @@
     "less-middleware": "*",
     "mongoose": "*",
     "passport": "*",
-    "passport-twitter": "*"
+    "passport-twitter": "*",
+    "passport-glue": "*"
   },
   "engines": {
     "node": "0.10.x",
