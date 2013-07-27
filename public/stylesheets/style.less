@@ -1,5 +1,4 @@
 body {
-  /*padding: 30px 50px 30px 50px;*/
 }
 
 #header{
@@ -19,7 +18,7 @@ body {
         padding: 10px 18px 10px 18px;
         color: white;
         background: black;
-        border-radius: 3px;
+        border-radius: 4px;
     }
 }
 
@@ -31,7 +30,6 @@ body {
 
 .add-new-playlist {
     margin-top: 20px;
-    margin-left: -60px;
 }
 
 form {
@@ -67,6 +65,15 @@ td p, th p {
     background-color: #f0f0f0;
 }
 
+.list-group-item.song {
+    padding: 10px 30px 0px 15px;
+    overflow: hidden;
+
+    .active {
+        border-color: #dddddd;
+    }
+}
+
 .song {
     cursor: hand;
     cursor: pointer;
@@ -79,6 +86,12 @@ td p, th p {
 .delete {
     float: right;
     color: #949494;
+    background-color: #F3F3F3;
+    margin-top: -35px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: -30px;
+    border-radius: 0px;
 }
 
 .delete:hover {

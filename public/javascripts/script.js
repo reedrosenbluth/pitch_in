@@ -7,6 +7,7 @@ $(function() {
     var hidden = false;
 
     $('.song').on('click', function(e) {
+        console.log('here');
         $song = $(this);
         var track_url = $song.attr('href');
         playSong(track_url);
@@ -30,8 +31,8 @@ $(function() {
 
     function playSong(track_url) {
         $('.toggle').show();
-        $('.song').removeClass('success');
-        $song.addClass('success');
+        $('.song').removeClass('active');
+        $song.addClass('active');
         var base_url = getBaseUrl(track_url);
         if (base_url  === 'soundcloud.com') {
             playSoundCloud(track_url);

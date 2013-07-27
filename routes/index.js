@@ -60,9 +60,9 @@ exports.add = function(req, res){
 };
 
 exports.destroy = function(req, res) {
-    Song.findById(req.params.id, function(err, song) {
+    Song.findById(req.params.songId, function(err, song) {
         song.remove(function(err, song) {
-            res.redirect('/');
+            res.redirect('/playlist/' + req.params.id);
         });
     });
 };

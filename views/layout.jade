@@ -13,11 +13,11 @@ html
     body
         #header
             .row.show-grid
-                .col-lg-3
+                .col-lg-6.col-sm-6.col-6
                     a(href='/')
                         #logo
                             h2 𝄢 Pitch In
-                .col-lg-9
+                .col-lg-6.col-sm-6.col-6
                     if user
                         a(href='/logout').account.btn.btn-info Logout: #{user.auth_type_twitter.username}
                     else

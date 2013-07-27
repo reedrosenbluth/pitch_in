@@ -68,7 +68,7 @@ app.get('/', routes.index);
 app.get('/playlist/:id', routes.playlist);
 app.get('/login', routes.login);
 app.get('/users', user.list);
-app.get('/destroy/:id', routes.destroy);
+app.get('/destroy/:id/:songId', routes.destroy);
 app.post('/add', routes.add);
 app.post('/create', routes.create);
 

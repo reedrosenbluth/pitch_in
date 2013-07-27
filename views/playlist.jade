@@ -10,28 +10,40 @@ block content
         input(type="hidden", name="id", value="#{id}")
         button.btn(type="submit") Submit
     br
-    table.table.table-condensed
-        thead
-            tr
-                th
-                    p #
-                th
-                    p Song Name
-                th
-                    p Artist
-                th(style="float:right")
-                    p Delete
-        tbody
-            each song, i in songs
-                tr.song(href=song.url)
-                    td
-                        p #{i + 1}
-                    td
-                        p #{song.title}
-                    td
-                        p #{song.artist}
-                    td
-                        a.delete(href="/destroy/#{song._id}") <i class="icon-remove"></i>
+
+    .row
+        .col-lg-6
+            .list-group
+                each song, i in songs
+                    .list-group-item.song(href=song.url)
+                        p.list-group-item-heading
+                            b #{song.title}
+                            |  - #{song.artist}
+                        //-p.list-group-item-heading #{song.artist}
+                        a.btn.btn-large.delete(href="/destroy/#{id}/#{song._id}") <i class="icon-remove"></i>
+
+    //-table.table.table-condensed
+        //-thead
+            //-tr
+                //-th
+                    //-p #
+                //-th
+                    //-p Song Name
+                //-th
+                    //-p Artist
+                //-th(style="float:right")
+                    //-p Delete
+        //-tbody
+            //-each song, i in songs
+                //-tr.song(href=song.url)
+                    //-td
+                        //-p #{i + 1}
+                    //-td
+                        //-p #{song.title}
+                    //-td
+                        //-p #{song.artist}
+                    //-td
+                        //-a.delete(href="/destroy/#{song._id}") <i class="icon-remove"></i>
     #track
         //-button.btn.btn-small.toggle Player
         #player
