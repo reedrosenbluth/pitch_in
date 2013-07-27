@@ -49,7 +49,7 @@ var User = mongoose.model('User');
 passport.use(new TwitterStrategy({
       consumerKey: '5FIHaX8cYm0oYZRtEFSNw',
       consumerSecret: 'JI6xGoxPtC7zcZfT1g9sHhDuVVxPt6aVSejhKyNJE',
-      callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback'
+      callbackURL: '/auth/twitter/callback'
     },
     function (token, tokenSecret, profile, done) {
       User.findOrCreateTwitterUser(token, tokenSecret, profile, done);
