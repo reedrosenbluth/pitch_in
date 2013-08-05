@@ -8,6 +8,16 @@ var Song = mongoose.model('Song');
 var Playlist = mongoose.model('Playlist');
 
 exports.index = function(req, res) {
+    if (req.user) {
+        console.log(req.user.auth_type_twitter.id);
+        Playlist.find({ "users": { $in: [ req.user.auth_type_twitter.id ] } }, function(err, playlists, count) {
+            res.render('index', {
+                title: 'Playlists',
+                playlists: playlists,
+                user: req.user
+            });
+        });
+    }
     Playlist.find(function(err, playlists, count) {
         res.render('index', {
             title: 'Playlists',
@@ -24,6 +34,7 @@ exports.playlist = function(req, res){
                 res.render('playlist', {
                     id: playlist.id,
                     title: playlist.name,
+                    playlist: playlist,
                     songs: songs,
                     user: req.user
                 });
@@ -31,6 +42,7 @@ exports.playlist = function(req, res){
                 res.render('playlist', {
                     id: playlist.id,
                     title: playlist.name,
+                    playlist: playlist,
                     songs: '',
                     user: req.user
                 });

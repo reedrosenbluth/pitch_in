@@ -1,6 +1,9 @@
 #header {
   padding: 30px 50px 20px 50px;
   background-color: #EBEBEB;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 #content {
   padding: 30px 50px 30px 50px;
@@ -52,8 +55,10 @@ th p {
   padding: 10px 30px 0px 15px;
   overflow: hidden;
 }
-.list-group-item.song .active {
+.list-group-item.song.active {
   border-color: #dddddd;
+  background-color: #428bca;
+  color: white;
 }
 .song {
   cursor: hand;

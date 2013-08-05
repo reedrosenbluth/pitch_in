@@ -1,6 +1,11 @@
 extends layout
 
 block content
+    script(type='text/javascript')
+        var playlist = !{JSON.stringify(playlist)};
+        if (playlist.image) {
+            $('#header').css('background-image', 'url(/images/' + playlist.image + ')');
+        }
     h1= title
     br
     form.form-inline(action="/add", method="post", accept-charset="utf-8")

@@ -10,6 +10,7 @@ var songSchema = new Schema({
 
  var playlistSchema = new Schema({
      name: String,
+     image: String,
      users: [String]
  });
 
