@@ -7,13 +7,14 @@ block content
             $('#header').css('background-image', 'url(/images/' + playlist.image + ')');
         }
     h1= title
-    br
-    form.form-inline(action="/add", method="post", accept-charset="utf-8")
-        input.form-control.input-medium(type="text", name="title", placeholder="title")
-        input.form-control.input-medium(type="text", name="artist", placeholder="artist")
-        input.form-control.input-medium(type="text", name="url", placeholder="url")
-        input(type="hidden", name="id", value="#{id}")
-        button.btn(type="submit") Submit
+    if user
+        br
+        form.form-inline(action="/add", method="post", accept-charset="utf-8")
+            input.form-control.input-medium(type="text", name="title", placeholder="title")
+            input.form-control.input-medium(type="text", name="artist", placeholder="artist")
+            input.form-control.input-medium(type="text", name="url", placeholder="url")
+            input(type="hidden", name="id", value="#{id}")
+            button.btn(type="submit") Submit
     br
 
     .row
@@ -24,31 +25,8 @@ block content
                         p.list-group-item-heading
                             b #{song.title}
                             |  - #{song.artist}
-                        //-p.list-group-item-heading #{song.artist}
-                        a.btn.btn-large.delete(href="/destroy/#{id}/#{song._id}") <i class="icon-remove"></i>
+                        if owner == true
+                            a.btn.btn-large.delete(href="/destroy/#{id}/#{song._id}") <i class="icon-remove"></i>
 
-    //-table.table.table-condensed
-        //-thead
-            //-tr
-                //-th
-                    //-p #
-                //-th
-                    //-p Song Name
-                //-th
-                    //-p Artist
-                //-th(style="float:right")
-                    //-p Delete
-        //-tbody
-            //-each song, i in songs
-                //-tr.song(href=song.url)
-                    //-td
-                        //-p #{i + 1}
-                    //-td
-                        //-p #{song.title}
-                    //-td
-                        //-p #{song.artist}
-                    //-td
-                        //-a.delete(href="/destroy/#{song._id}") <i class="icon-remove"></i>
     #track
-        //-button.btn.btn-small.toggle Player
         #player

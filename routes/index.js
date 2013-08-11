@@ -29,11 +29,16 @@ exports.index = function(req, res) {
 
 exports.playlist = function(req, res){
     Playlist.findOne({_id: req.params.id}, function(err, playlist) {
+        var owner = false;
+        if (req.user && req.user.auth_type_twitter.id == playlist.users[0]) {
+            owner = true;
+        }
         Song.find({'playlistId': playlist.id}, function(err, songs) {
             if (songs) {
                 res.render('playlist', {
                     id: playlist.id,
                     title: playlist.name,
+                    owner: owner,
                     playlist: playlist,
                     songs: songs,
                     user: req.user
@@ -42,6 +47,7 @@ exports.playlist = function(req, res){
                 res.render('playlist', {
                     id: playlist.id,
                     title: playlist.name,
+                    owner: owner,
                     playlist: playlist,
                     songs: '',
                     user: req.user
@@ -53,7 +59,8 @@ exports.playlist = function(req, res){
 
 exports.create = function(req, res) {
     new Playlist({
-        name: req.body.name
+        name: req.body.name,
+        users: [req.user.auth_type_twitter.id]
     }).save(function(err, list, count){
         res.redirect('/');
     });
