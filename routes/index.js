@@ -12,7 +12,7 @@ exports.index = function(req, res) {
         console.log(req.user.auth_type_twitter.id);
         Playlist.find({ "users": { $in: [ req.user.auth_type_twitter.id ] } }, function(err, playlists, count) {
             res.render('index', {
-                title: 'Playlists',
+                title: 'My Playlists',
                 playlists: playlists,
                 user: req.user
             });
