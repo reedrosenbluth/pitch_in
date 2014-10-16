@@ -10,10 +10,10 @@ block content
     if user
         br
         form.form-inline.add-form(action="/add", method="post", accept-charset="utf-8")
+            input.playlist-id(type="hidden", name="id", value="#{id}")
             input.form-control.input-medium.track-title(type="hidden", name="title", placeholder="title")
             input.form-control.input-medium.track-artist(type="hidden", name="artist", placeholder="artist")
             input.form-control.input-medium.track-url(type="text", name="url", placeholder="url")
-            input.playlist-id(type="hidden", name="id", value="#{id}")
             button.btn.addsong(type="submit") Add Song
     br
 
